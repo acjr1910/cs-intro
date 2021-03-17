@@ -54,10 +54,16 @@ def get_story_string():
     """
     Returns: a joke in encrypted text.
     """
-    f = open("story.txt", "r")
+    f = open(
+        "/home/raiadrogasil.com/acjunior/repos/MIT-6001/unit_5/pset/story.txt", "r")
     story = str(f.read())
     f.close()
     return story
+
+
+def decrypt_story():
+    ciphertext = CiphertextMessage(get_story_string())
+    return ciphertext.decrypt_message()
 
 
 WORDLIST_FILENAME = '/home/raiadrogasil.com/acjunior/repos/MIT-6001/unit_5/pset/words.txt'
@@ -271,11 +277,11 @@ class CiphertextMessage(Message):
 
 
 # Example test case (PlaintextMessage)
-plaintext = PlaintextMessage('hello world', 2)
-print('Expected Output: jgnnq yqtnf')
-print('Actual Output:', plaintext.get_message_text_encrypted())
+# plaintext = PlaintextMessage('hello world', 2)
+# print('Expected Output: jgnnq yqtnf')
+# print('Actual Output:', plaintext.get_message_text_encrypted())
 
 # Example test case (CiphertextMessage)
-ciphertext = CiphertextMessage('jgnnq yqtnf')
-print('Expected Output:', (24, 'hello world'))
-print('Actual Output:', ciphertext.decrypt_message())
+# ciphertext = CiphertextMessage('jgnnq yqtnf')
+# print('Expected Output:', (24, 'hello world'))
+# print('Actual Output:', ciphertext.decrypt_message())
